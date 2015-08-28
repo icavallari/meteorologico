@@ -39,7 +39,7 @@
                 {
 
                     title: {
-                        text: 'Últimas Variações de Umidade Relativa do Ar do dia anterior'
+                        text: 'Últimas Variações de Umidade Relativa do Ar'
                     },
                     subtitle: {
                         text: 'As últimas 30 horas captadas.'

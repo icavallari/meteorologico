@@ -12,10 +12,10 @@
             <div class="col-md-3 for-btn">
                 <div class="text-center legenda">Temperatura</div>
                 <div class="col-md-12 alert alert-if">
-<!--                     <span class="btn-clicavel" data-toggle="modal" -->
-<!--                         onclick="openModal('/modal-temperatura')" -->
-<!--                         data-target="#chartModal"><i class="fa fa-hand-o-right"></i> -->
-<!--                         visualize-me</span> -->
+                    <span class="btn-clicavel" data-toggle="modal"
+                        onclick="openModal('/modal-temperatura')"
+                        data-target="#chartModal"><i class="fa fa-hand-o-right"></i>
+                        visualize-me</span>
                     <!-- termometro -->
                     <div class="termometro">
                         <span class="glass"> <span class="total" style="bottom: 0%">${dados.temperatura}
@@ -79,11 +79,11 @@
 
             <div class="col-md-3 for-btn">
                 <div class="text-center legenda">Umidade Relativa do Ar</div>
-<!--                    <span class="btn-clicavel" data-toggle="modal" -->
-<!--                           onclick="openModal('/modal-umidade')" -->
-<!--                        style="z-index: 99; margin-left: 17px; margin-top: 37px" -->
-<!--                        data-target="#chartModal"><i class="fa fa-hand-o-right"></i> -->
-<!--                        visualize-me</span> -->
+                   <span class="btn-clicavel" data-toggle="modal"
+                          onclick="openModal('/modal-umidade')"
+                       style="z-index: 99; margin-left: 17px; margin-top: 37px"
+                       data-target="#chartModal"><i class="fa fa-hand-o-right"></i>
+                       visualize-me</span>
                 <div class="col-md-12 alert alert-if">
                     <div id="container-umidade" style="width: 100%; height: 280px"></div>
                     <div id="addText"></div>
@@ -253,10 +253,10 @@
 
             </div>
             <div class="col-md-3 for-btn">
-<!--                 <span class="btn-clicavel" data-toggle="modal" onclick="openModal('/modal-pressao')" -->
-<!--                     style="z-index: 99; margin-left: 17px; top: 1px" -->
-<!--                     data-target="#chartModal"><i class="fa fa-hand-o-right"></i> -->
-<!--                     visualize-me</span> -->
+                <span class="btn-clicavel" data-toggle="modal" onclick="openModal('/modal-pressao')"
+                    style="z-index: 99; margin-left: 17px; top: 1px"
+                    data-target="#chartModal"><i class="fa fa-hand-o-right"></i>
+                    visualize-me</span>
                 <div class="col-md-12 alert alert-if">
                     <div id="container-uv" style="width: 115%; padding-right: 12px"></div>
                 </div>

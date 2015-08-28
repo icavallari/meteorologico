@@ -21,7 +21,7 @@ import br.com.tcc.service.VelocidadeVentoService;
 import br.com.tcc.util.Check;
 
 /**
- * Responsavel por limpar as tabelas de medições e reinserir
+ * Responsavel por limpar as tabelas de medições (mediçao dia e medicao hora) e reinserir
  *
  * @see ao subir a aplicação após criar as tabelas e jobs auxiliares é
  *      necessário obter as variações dos dados até então já armazenados
@@ -316,7 +316,7 @@ public class Medicoes {
                     + "%s,%s,%s,"
                     + "'%s','%s','%s', %d, %d, %d, %d, %d, %d);";
 
-                // realiza o inserte
+                // realiza o insert
                 query.execute(String.format(sql, 1, tabelaDia.getData(),
                     tabelaDia.getMedianaChuva(), tabelaDia.getMediaChuva(),
                     tabelaDia.getModaChuva(),

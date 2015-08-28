@@ -31,8 +31,8 @@ import br.com.tcc.service.DadosClimaService;
 @Named
 public class JobTabelasIndividuais {
 
-//    private static final String URL = "http://172.16.7.162/";
-     private static final String URL = "http://localhost/teste/protocolo";
+    private static final String URL = "http://172.16.7.162/";
+    // private static final String URL = "http://localhost/teste/protocolo";
 
     @Inject
     private DadosClimaService   dadosClimaService;

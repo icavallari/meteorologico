@@ -39,7 +39,7 @@
                 {
 
                     title: {
-                        text: 'Últimas Variações de Pressão Atmosférica do dia anterior'
+                        text: 'Últimas Variações de Pressão Atmosférica'
                     },
                     subtitle: {
                         text: 'As últimas 30 horas captadas.'

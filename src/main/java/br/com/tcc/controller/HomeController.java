@@ -113,7 +113,7 @@ public class HomeController {
 
         refazer.insereHorasNaTabelaHora();
         refazer.insereDiaNaTabelaDia();
-//        refazer.deletarDados30Dias();
+        refazer.deletarDados30Dias();
 
         return getNewHome();
     }

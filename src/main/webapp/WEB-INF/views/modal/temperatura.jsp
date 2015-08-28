@@ -39,7 +39,7 @@
                 {
 
                     title: {
-                        text: 'Últimas Variações de Temperatura do dia anterior'
+                        text: 'Últimas Variações de Temperatura'
                     },
                     subtitle: {
                         text: 'As últimas 30 horas captadas.'

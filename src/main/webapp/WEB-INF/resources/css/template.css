@@ -1,0 +1,189 @@
+.mensagem-dado-indisponivel {
+    font-family: Merriweather, 'Helvetica Neue', Arial, sans-serif;
+    text-align: center;
+    color: #666; font-size : 25px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    font-size: 25px;
+}
+
+.alert.alert-if {
+    background-color: #F8F8F8;
+    border-color: #e7e7e7;
+    height: 219px;
+    border-radius: 0;
+    box-shadow: 0 8px 17px -2px rgba(0, 0, 0, 0.2);
+}
+
+.shadow-nav {
+    box-shadow: 0 2px 17px -2px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+    margin-top: 70px;
+}
+
+ul.dropdown-menu {
+    box-shadow: 0 10px 17px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* regua altitude
+     ============================*/
+.line {
+    width: 2px;
+    height: 138px;
+    background-color: #888;
+    position: absolute;
+    top: 30px;
+    left: 65px;
+    z-index: 10;
+    margin-left: 60px;
+    margin-bottom: 5px
+}
+
+.hr {
+    width: 2px;
+    height: 150px;
+    background-color: #888;
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    z-index: 10;
+}
+
+.arrow {
+    font-size: 20px;
+    color: #888;
+    position: absolute;
+    top: 140px;
+    margin-left: -70px;
+}
+
+/* termomether
+     ============================*/
+.termometro {
+    margin-top: 10px;
+    margin-left: 65px;
+    width: 100px;
+}
+
+.termometro .glass {
+    background: #e5e5e5;
+    border-radius: 100px 100px 0 0;
+    display: block;
+    height: 127px;
+    margin: 0 35px 10px;
+    padding: 5px;
+    position: relative;
+    width: 22px;
+}
+
+.termometro .amount {
+    background: #f34e54;
+    border-radius: 100px;
+    display: block;
+    width: 13px;
+    position: absolute;
+    bottom: 5px;
+}
+
+.termometro .total {
+    font-size: 20px;
+    position: absolute;
+    right: -80px;
+    color: #888;
+    text-align: center;
+}
+
+.bulb {
+    background: #e5e5e5;
+    border-radius: 100px;
+    display: block;
+    height: 40px;
+    margin: 0 42px 10px;
+    padding: 5px;
+    position: relative;
+    top: -20px;
+    right: 15px;
+    width: 40px;
+}
+
+.bulb .red-circle {
+    background: #f34e54;
+    border-radius: 100px;
+    display: block;
+    height: 30px;
+    width: 30px;
+}
+
+.bulb .filler {
+    background: #f34e54;
+    border-radius: 100px 100px 0 0;
+    display: block;
+    height: 30px;
+    width: 13px;
+    position: relative;
+    top: -55px;
+    right: -8px;
+    z-index: 30;
+}
+
+.val {
+    position: absolute;
+}
+
+.btn-clicavel:hover {
+    text-decoration: underline;
+}
+
+div.for-btn:hover .btn-clicavel {
+    display: block;
+}
+
+div.for-btn .btn-clicavel {
+    position: absolute;
+    cursor: pointer;
+    display: none;
+    top: 0;
+}
+
+.legenda {
+    margin-bottom: 15px;
+}
+
+.valorchuva {
+    text-transform: capitalize;
+}
+
+@media ( min-width : 1025px) {
+    #container-speed,#container-rpm,#container-uv {
+        margin-left: -2px !important;
+    }
+}
+
+@media ( max-width : 1024px) {
+    .termometro {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .line {
+        margin-left: 37px;
+    }
+    .alert-if table {
+        margin-left: -25px;
+    }
+    .alert-if table td span {
+        margin-left: -25px;
+    }
+    .arrow {
+        font-size: 19px;
+    }
+    .alert-if img {
+        margin-top: 0px !important;
+    }
+    #container-speed,#container-rpm {
+        height: 145px !important;
+        margin-top: 35px !important;
+        margin-left: -25px !important;
+    }
+}

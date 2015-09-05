@@ -108,7 +108,7 @@ public class HomeController {
             .addObject("pressoes", pressaoAtmosfericaService.getPressoesTodosOsDias());
     }
 
-    @RequestMapping(value = "/tabela-auxiliar/refazer/teste", method = RequestMethod.GET)
+//    @RequestMapping(value = "/tabela-auxiliar/refazer/teste", method = RequestMethod.GET)
     public ModelAndView refazerTabelasAuxiliares() throws ParseException {
 
         refazer.insereHorasNaTabelaHora();

@@ -57,6 +57,7 @@ public class Medicoes {
 
     private Integer                   DIAS_ = 115;
 
+    // TODO não insere o dia atual
     public void insereHorasNaTabelaHora() {
 
         // zera a tabela de medicao_hora

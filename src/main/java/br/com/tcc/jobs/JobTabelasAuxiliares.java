@@ -34,10 +34,10 @@ import br.com.tcc.util.Check;
  *
  */
 
-@Configuration
-@EnableAsync
-@EnableScheduling
-@Named
+//@Configuration
+//@EnableAsync
+//@EnableScheduling
+//@Named
 public class JobTabelasAuxiliares {
 
     @Inject

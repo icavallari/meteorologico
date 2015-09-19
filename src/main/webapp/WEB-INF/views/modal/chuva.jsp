@@ -7,7 +7,7 @@
     <div class="col-md-12">
 
         <c:choose>
-            <c:when test="${empty pressoes}">
+            <c:when test="${empty chuvas}">
                 <div class="mensagem-dado-indisponivel">Ainda não temos
                     informações disponíveis para este gráfico.</div>
             </c:when>
@@ -21,83 +21,71 @@
 
     <script>
         $(function() {
-            $('#container')
-                    .highcharts(
-                            {
-                                chart : {
-                                    type : 'spline'
-                                },
-                                title : {
-                                    text : 'Monthly Average Temperature'
-                                },
-                                subtitle : {
-                                    text : 'Source: WorldClimate.com'
-                                },
-                                xAxis : {
-                                    categories : [ 'Jan', 'Feb', 'Mar', 'Apr',
-                                            'May', 'Jun', 'Jul', 'Aug', 'Sep',
-                                            'Oct', 'Nov', 'Dec' ]
-                                },
-                                yAxis : {
-                                    title : {
-                                        text : 'Temperature'
-                                    },
-                                    labels : {
-                                        formatter : function() {
-                                            return this.value + '°';
-                                        }
-                                    }
-                                },
-                                tooltip : {
-                                    crosshairs : true,
-                                    shared : true
-                                },
-                                plotOptions : {
-                                    spline : {
-                                        marker : {
-                                            radius : 4,
-                                            lineColor : '#666666',
-                                            lineWidth : 1
-                                        }
-                                    }
-                                },
-                                series : [
-                                        {
-                                            name : 'Tokyo',
-                                            marker : {
-                                                symbol : 'square'
-                                            },
-                                            data : [
-                                                    7.0,
-                                                    6.9,
-                                                    9.5,
-                                                    14.5,
-                                                    18.2,
-                                                    21.5,
-                                                    25.2,
-                                                    {
-                                                        y : 26.5,
-                                                        marker : {
-                                                            symbol : 'url(http://www.highcharts.com/demo/gfx/sun.png)'
-                                                        }
-                                                    }, 23.3, 18.3, 13.9, 9.6 ]
+            $('#container').highcharts({
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                    text: 'Últimas Variações de Chuva & Temperatura Média'
+                },
+                subtitle: {
+                    text: 'As últimas 30 horas captadas.'
+                },
+                xAxis: {
+                    categories: [
+                        <c:forEach var="ch" items="${chuvas}" varStatus="it">
+                            '${ch.dataString}'${!it.last ? ',' : '' }
+                        </c:forEach>
+                        ],
+                    tickInterval: 5,
+                    tickWidth: 1
+                },
+                yAxis: {
+                    title: {
+                        text: 'Temperatura'
+                    },
+                    labels: {
+                        format: '{value: .0f}°C'
+                    }
+                },
+                tooltip: {
+                    crosshairs: {
+                        width: 1,
+                        color: '#999'
+                    },
+                    shared: true,
+                    valueSuffix: '°C',
+                    useHTML: true,
+                    headerFormat: '<b><u><span font-size:15px">{point.key}</span></u></b><br>'
+                },
+                plotOptions: {
+                    spline: {
+                        marker: {
+                            radius: 4,
+                            lineColor: '#666666',
+                            lineWidth: 1
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Temperatura Média',
+                    marker: {
+                        symbol: 'square'
+                    },
+                    data: [
 
-                                        },
-                                        {
-                                            name : 'London',
-                                            marker : {
-                                                symbol : 'diamond'
-                                            },
-                                            data : [
-                                                    {
-                                                        y : 3.9,
-                                                        marker : {
-                                                            symbol : 'url(http://www.highcharts.com/demo/gfx/snow.png)'
-                                                        }
-                                                    }, 4.2, 5.7, 8.5, 11.9,
-                                                    15.2, 17.0, 16.6, 14.2,
-                                                    10.3, 6.6, 4.8 ]
-                                        } ]
-                            });
+                       <c:forEach var="ch" items="${chuvas}" varStatus="it">
+                           <c:set var="img" value="icon-${ch.chuva}.png" />
+
+                          {  y : ${ch.temperatura},
+                                 marker: {
+                                        symbol: 'url(<c:url value="/resources/icon/${img}" />)'
+                                  }
+                          } ${!it.last ? ',' : '' }
+                        </c:forEach>
+                    ]
+
+                }]
+            });
         });
     </script>

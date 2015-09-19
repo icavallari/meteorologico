@@ -17,6 +17,7 @@ import javax.inject.Named;
 
 import br.com.tcc.entidade.Chuva;
 import br.com.tcc.entidade.SentidoVento;
+import br.com.tcc.model.ModalChuvaModel;
 import br.com.tcc.model.VariacaoStringModel;
 import br.com.tcc.service.ChuvaService;
 import br.com.tcc.service.Query;
@@ -26,7 +27,7 @@ import br.com.tcc.util.Check;
 public class ChuvaServiceImpl implements ChuvaService {
 
     @Inject
-    private Query query;
+    private Query              query;
 
     @Override
     public List<VariacaoStringModel> getUltimaHora() {
@@ -86,7 +87,6 @@ public class ChuvaServiceImpl implements ChuvaService {
 
         return vsm;
     }
-
 
     @Override
     public List<VariacaoStringModel> getChuvasHorasDiaAnterior() {
@@ -241,6 +241,15 @@ public class ChuvaServiceImpl implements ChuvaService {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         return c.get(Calendar.HOUR_OF_DAY);
+    }
+
+    @Override
+    public List<ModalChuvaModel> getChuvaTemperaturaUltimasHoras(Integer ultimasHoras) {
+
+        return query.getListObject(new ModalChuvaModel(),
+            "select data as data, chuva_moda as chuva, temperatura_media as temperatura "
+                + "from medicao_hora "
+                + "order by data offset (select count(*) - " + ultimasHoras + " from medicao_hora) limit " + ultimasHoras);
     }
 
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.tcc.model.DadosClimaModel;
+import br.com.tcc.service.ChuvaService;
 import br.com.tcc.service.DadosClimaService;
 import br.com.tcc.service.PressaoAtmosfericaService;
 import br.com.tcc.service.TemperaturaService;
@@ -35,6 +36,9 @@ public class HomeController {
 
     @Inject
     private PressaoAtmosfericaService pressaoAtmosfericaService;
+
+    @Inject
+    private ChuvaService              chuvaService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView getNewHome() throws ParseException {
@@ -81,11 +85,11 @@ public class HomeController {
     }
 
     // modal de visualização rapida com as ultimas 30 horas da medicao_hora
-    // @RequestMapping(value = "/modal-chuva", method = RequestMethod.GET)
-    // public ModelAndView getModalChuva() throws ParseException {
-    // return new ModelAndView("modal/chuva")
-    // .addObject("pressoes", pressaoAtmosfericaService.getUltimasHoras(30));
-    // }
+    @RequestMapping(value = "/modal-chuva", method = RequestMethod.GET)
+    public ModelAndView getModalChuva() throws ParseException {
+        return new ModelAndView("modal/chuva")
+            .addObject("chuvas", chuvaService.getChuvaTemperaturaUltimasHoras(30));
+    }
 
     // ----------------------------------------------------------------------------------------
     // páginas individuais
@@ -108,7 +112,8 @@ public class HomeController {
             .addObject("pressoes", pressaoAtmosfericaService.getPressoesTodosOsDias());
     }
 
-//    @RequestMapping(value = "/tabela-auxiliar/refazer/teste", method = RequestMethod.GET)
+    // @RequestMapping(value = "/tabela-auxiliar/refazer/teste", method =
+    // RequestMethod.GET)
     public ModelAndView refazerTabelasAuxiliares() throws ParseException {
 
         refazer.insereHorasNaTabelaHora();

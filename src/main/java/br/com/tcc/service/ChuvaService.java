@@ -3,6 +3,7 @@ package br.com.tcc.service;
 import java.util.List;
 
 import br.com.tcc.entidade.Chuva;
+import br.com.tcc.model.ModalChuvaModel;
 import br.com.tcc.model.VariacaoStringModel;
 
 public interface ChuvaService {
@@ -51,5 +52,13 @@ public interface ChuvaService {
      * @return
      */
     List<VariacaoStringModel> getUltimaHora();
+
+    /**
+     * Obtém os 30 dados captados contendo a chuva e a temperatura
+     *
+     * @param diasAtras
+     * @return modalChuvaModel
+     */
+    List<ModalChuvaModel> getChuvaTemperaturaUltimasHoras(Integer diasAtras);
 
 }

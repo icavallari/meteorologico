@@ -43,7 +43,6 @@ public class ModalSimplesModel {
     }
 
     public String getDataString() {
-
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM - HH");
         return sdf.format(data) + " hrs";
     }

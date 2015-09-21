@@ -1,6 +1,10 @@
 package br.com.tcc.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import br.com.tcc.entidade.DirecoesVento;
+import br.com.tcc.util.Check;
 
 public class VariacaoStringModel {
 
@@ -68,6 +72,33 @@ public class VariacaoStringModel {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    // apenas para sentido do vento
+    public String getDirecaoVentoModa() {
+        if (Check.naoNulo(this.moda)) {
+            return DirecoesVento.valueOf(getModa().replace("-", "_")).getPosicao();
+        }
+        return null;
+    }
+
+    public String getDirecaoVentoMediana() {
+        if (Check.naoNulo(this.mediana)) {
+            return DirecoesVento.valueOf(getMediana().replace("-", "_")).getPosicao().replace("11", "9");
+        }
+        return null;
+    }
+
+    public String getDirecaoVentoMedia() {
+        if (Check.naoNulo(this.media)) {
+            return DirecoesVento.valueOf(getMedia().replace("-", "_")).getPosicao().replace("11", "7");
+        }
+        return null;
+    }
+
+    public String getDataString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM - HH");
+        return sdf.format(data) + " hrs";
     }
 
 }

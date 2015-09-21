@@ -2,6 +2,8 @@ package br.com.tcc.model;
 
 import java.util.Date;
 
+import br.com.tcc.entidade.DirecoesVento;
+
 public class DadosClimaModel {
 
     private Float  pressao;
@@ -85,6 +87,10 @@ public class DadosClimaModel {
 
     public void setDataCaptura(Date dataCaptura) {
         this.dataCaptura = dataCaptura;
+    }
+
+    public String getDirecaoVento() {
+        return DirecoesVento.valueOf(getSentidoVento().replace("-", "_")).getPosicao();
     }
 
 }

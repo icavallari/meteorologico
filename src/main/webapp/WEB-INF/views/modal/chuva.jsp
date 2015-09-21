@@ -1,7 +1,17 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<style type="text/css">
+.legenda-chuva{
+    text-align: center;
+}
+dd {
+    display: inline-block;
+    text-align: initial;
+}
+</style>
 
 <div class="row">
     <div class="col-md-12">
@@ -13,6 +23,16 @@
             </c:when>
             <c:otherwise>
                 <div id="container" style="height: 400px;" class="chart"></div>
+
+                <div class="legenda-chuva">
+                    <dl>
+                        <dd><img alt="" src="<c:url value='/resources/icon/icon-sem-chuva.png' />" /> Sem Chuva</dd>
+                        <dd><img alt="" src="<c:url value='/resources/icon/icon-baixa-intensidade.png' />" /> Baixa Intensidade de Chuva</dd>
+                        <dd><img alt="" src="<c:url value='/resources/icon/icon-intensidade-moderada.png' />" /> Intensidade Moderada de Chuva</dd>
+                        <dd><img alt="" src="<c:url value='/resources/icon/icon-alta-intensidade.png' />" /> Alta Intensidade de Chuva</dd>
+                    </dl>
+                </div>
+
             </c:otherwise>
         </c:choose>
 
@@ -20,17 +40,11 @@
 </div>
 
     <script>
+
         $(function() {
             $('#container').highcharts({
-                chart: {
-                    type: 'spline'
-                },
-                title: {
-                    text: 'Últimas Variações de Chuva & Temperatura Média'
-                },
-                subtitle: {
-                    text: 'As últimas 30 horas captadas.'
-                },
+                chart: { type: 'spline' }, title: { text: 'Últimas Variações de Chuva & Temperatura Média' },
+                subtitle: { text: 'As últimas 30 horas captadas.' },
                 xAxis: {
                     categories: [
                         <c:forEach var="ch" items="${chuvas}" varStatus="it">
@@ -40,14 +54,7 @@
                     tickInterval: 5,
                     tickWidth: 1
                 },
-                yAxis: {
-                    title: {
-                        text: 'Temperatura'
-                    },
-                    labels: {
-                        format: '{value: .0f}°C'
-                    }
-                },
+                yAxis: { title: { text: 'Variações de Chuva & Temperatura Média' }, labels: { format: '{value: .0f}°C' } },
                 tooltip: {
                     crosshairs: {
                         width: 1,

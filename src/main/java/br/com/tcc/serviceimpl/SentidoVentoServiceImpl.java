@@ -245,4 +245,15 @@ public class SentidoVentoServiceImpl implements SentidoVentoService {
         return c.get(Calendar.HOUR_OF_DAY);
     }
 
+    @Override
+    public List<VariacaoStringModel> getVentosUltimasHoras(Integer ultimasHoras) {
+
+        return query.getListObject(new VariacaoStringModel(),
+            "select data as data, sentidovento_moda as moda, sentidovento_mediana as mediana, sentidovento as media,"
+                + "sentidovento_qtdmoda as qtdmoda, sentidovento_qtdmediana as qtdmediana, sentidovento_qtd as qtd "
+                + "from medicao_hora "
+                + "order by data offset (select count(*) - " + ultimasHoras + " from medicao_hora) limit " + ultimasHoras);
+
+    }
+
 }

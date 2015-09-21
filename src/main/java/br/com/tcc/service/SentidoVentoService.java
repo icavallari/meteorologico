@@ -48,8 +48,17 @@ public interface SentidoVentoService {
 
     /**
      * obtém uma lista de valores da ultima hora
+     *
      * @return
      */
     List<VariacaoStringModel> getVentosUltimaHora();
+
+    /**
+     * Obtém os três sentidos de vento mais frequente das ultimas horas
+     *
+     * @param ultimasHoras
+     * @return
+     */
+    List<VariacaoStringModel> getVentosUltimasHoras(Integer ultimasHoras);
 
 }

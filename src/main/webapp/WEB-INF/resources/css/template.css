@@ -1,3 +1,37 @@
+
+.modal .modal-dialog {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+     top: 10px;
+    opacity: 0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.modal.in .modal-dialog {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+/*     -webkit-transform: translate3d(0, -10px, 0); */
+/*     transform: translate3d(0, -10px, 0); */
+    opacity: 1;
+}
+
+.modal-center {
+    height: @modalHeight;
+    top: 25%;
+    margin-top: -1* (@modalHieght/2);
+    overflow: hidden;
+}
+
+.modal-dialog .modal-content{
+    border-radius: 0px;
+}
+
 .mensagem-dado-indisponivel {
     font-family: Merriweather, 'Helvetica Neue', Arial, sans-serif;
     text-align: center;

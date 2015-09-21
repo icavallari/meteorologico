@@ -1,4 +1,4 @@
-<%@tag description="Main template for pages" pageEncoding="UTF-8"%>
+<%@tag description="Main template for pages" pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html >
@@ -78,8 +78,6 @@ body {
 <c:if test="${empty tipo}">
     <script type="text/javascript" src="<c:url value="/resources/highstock/highstock.js" />"></script>
     <script type="text/javascript" src="<c:url value="/resources/highcharts/highcharts-more.js"/> "></script>
-<%--     <script type="text/javascript" src="<c:url value="/resources/highcharts/highcharts.js"/> "></script> --%>
-    <script type="text/javascript" src="<c:url value="/resources/highcharts/modules/data.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/highcharts/exporting.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/highcharts/modules/solid-gauge.js"/> "></script>
 </c:if>

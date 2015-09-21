@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
-<link href="<c:url value="/resources/css/template.css"/>"
-    rel="stylesheet">
+<link rel="stylesheet" href="<c:url value="/resources/owl-carousel/owl.carousel.css"/>">
+<link rel="stylesheet" href="<c:url value="/resources/owl-carousel/owl.theme.css" />" />
+<link href="<c:url value="/resources/css/template.css"/>" rel="stylesheet">
+
 <t:template>
 
     <div class="content container">
@@ -13,8 +15,8 @@
                 <div class="text-center legenda">Temperatura</div>
                 <div class="col-md-12 alert alert-if">
                     <span class="btn-clicavel" data-toggle="modal"
-                        onclick="openModal('/modal-temperatura')"
-                        data-target="#chartModal"><i class="fa fa-hand-o-right"></i>
+                        onclick="openModal('/modal-temperatura', false)"
+                        ><i class="fa fa-hand-o-right"></i>
                         visualize-me</span>
                     <!-- termometro -->
                     <div class="termometro">
@@ -80,9 +82,9 @@
             <div class="col-md-3 for-btn">
                 <div class="text-center legenda">Umidade Relativa do Ar</div>
                    <span class="btn-clicavel" data-toggle="modal"
-                          onclick="openModal('/modal-umidade')"
+                          onclick="openModal('/modal-umidade', false)"
                        style="z-index: 99; margin-left: 17px; margin-top: 37px"
-                       data-target="#chartModal"><i class="fa fa-hand-o-right"></i>
+                       ><i class="fa fa-hand-o-right"></i>
                        visualize-me</span>
                 <div class="col-md-12 alert alert-if">
                     <div id="container-umidade" style="width: 100%; height: 280px"></div>
@@ -91,139 +93,13 @@
             </div>
             <div class="col-md-3 for-btn">
                 <div class="text-center legenda">Direção do Vento</div>
-                <!--                 <span class="btn-clicavel" data-toggle="modal" -->
-                <!--                     style="z-index: 99; margin-left: 17px; margin-top: 35px" -->
-                <!--                     data-target="#myModal"><i class="fa fa-hand-o-right"></i> -->
-                <!--                     visualize-me</span> -->
+                  <span class="btn-clicavel" data-toggle="modal"
+                      style="z-index: 99; margin-left: 17px; margin-top: 37px"
+                      onclick="openModal('/modal-dir-vento', true)">
+                      <i class="fa fa-hand-o-right"></i> visualize-me</span>
                 <div class="col-md-12 alert alert-if">
                     <div id="container-rose"
                         style="width: 100%; height: 100%; margin-top: 5px"></div>
-                    <div style="display: none">
-                        <table id="freq" border="0" cellspacing="0" cellpadding="0">
-                            <tr nowrap bgcolor="#CCCCFF">
-
-                            </tr>
-                            <tr nowrap bgcolor="#CCCCFF">
-                                <th class="freq">Direction</th>
-                            </tr>
-                            <tr nowrap>
-                                <td class="dir">N</td>
-                                <c:if test="${dados.sentidoVento eq 'NORTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap bgcolor="#DDDDDD">
-                                <td class="dir">NNE</td>
-                                <c:if test="${dados.sentidoVento eq 'NOR-NORDESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap>
-                                <td class="dir">NE</td>
-                                <c:if test="${dados.sentidoVento eq 'NORDESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap bgcolor="#DDDDDD">
-                                <td class="dir">ENE</td>
-                                <c:if test="${dados.sentidoVento eq 'ES-NORDESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap>
-                                <td class="dir">E</td>
-                                <c:if test="${dados.sentidoVento eq 'LESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap bgcolor="#DDDDDD">
-                                <td class="dir">ESE</td>
-                                <c:if test="${dados.sentidoVento eq 'ES-SUDESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap>
-                                <td class="dir">SE</td>
-                                <c:if test="${dados.sentidoVento eq 'SUDESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap bgcolor="#DDDDDD">
-                                <td class="dir">SSE</td>
-                                <c:if test="${dados.sentidoVento eq 'SU-SUDESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap>
-                                <td class="dir">S</td>
-                                <c:if test="${dados.sentidoVento eq 'SUL' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap bgcolor="#DDDDDD">
-                                <td class="dir">SSO</td>
-                                <c:if test="${dados.sentidoVento eq 'SU-SUDOESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap>
-                                <td class="dir">SO</td>
-                                <c:if test="${dados.sentidoVento eq 'SUDOESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap bgcolor="#DDDDDD">
-                                <td class="dir">OSO</td>
-                                <c:if test="${dados.sentidoVento eq 'OES-SUDOESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap>
-                                <td class="dir">O</td>
-                                <c:if test="${dados.sentidoVento eq 'OESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap bgcolor="#DDDDDD">
-                                <td class="dir">ONO</td>
-                                <c:if test="${dados.sentidoVento eq 'OES-NOROESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap>
-                                <td class="dir">NO</td>
-                                <c:if test="${dados.sentidoVento eq 'NOROESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap bgcolor="#DDDDDD">
-                                <td class="dir">NNO</td>
-                                <c:if test="${dados.sentidoVento eq 'NOR-NOROESTE' }">
-                                    <td class="data">17</td>
-                                </c:if>
-
-                            </tr>
-                            <tr nowrap>
-                                <td class="totals">Total</td>
-                                <td class="totals">&nbsp;</td>
-                            </tr>
-                        </table>
-                    </div>
                 </div>
             </div>
         </div>
@@ -253,9 +129,9 @@
 
             </div>
             <div class="col-md-3 for-btn">
-                <span class="btn-clicavel" data-toggle="modal" onclick="openModal('/modal-pressao')"
+                <span class="btn-clicavel" data-toggle="modal" onclick="openModal('/modal-pressao', false)"
                     style="z-index: 99; margin-left: 17px; top: 1px"
-                    data-target="#chartModal"><i class="fa fa-hand-o-right"></i>
+                    ><i class="fa fa-hand-o-right"></i>
                     visualize-me</span>
                 <div class="col-md-12 alert alert-if">
                     <div id="container-uv" style="width: 115%; padding-right: 12px"></div>
@@ -263,9 +139,9 @@
                 <div class="text-center ">Pressão Atmosférica</div>
             </div>
             <div class="col-md-3 for-btn">
-                <span class="btn-clicavel" data-toggle="modal" onclick="openModal('/modal-chuva')"
+                <span class="btn-clicavel" data-toggle="modal" onclick="openModal('/modal-chuva', false)"
                     style="z-index: 99; margin-left: 17px; top: 1px"
-                    data-target="#chartModal"><i class="fa fa-hand-o-right"></i>
+                    ><i class="fa fa-hand-o-right"></i>
                     visualize-me</span>
                 <div class="col-md-12 alert alert-if">
                     <img id="chuva"
@@ -282,11 +158,12 @@
         <!-- fim row -->
     </div>
 
+    <script type="text/javascript" src="<c:url value='/resources/owl-carousel/owl.carousel.js'/>"></script>
     <!-- inclui os scripts highcharts dos elementos da home -->
     <%@include file="scripts-highchats-home.jsp"%>
 
     <!-- modal de visualizações rapidas -->
-    <div id="chartModal" class="modal fade">
+    <div id="chartModal" class="modal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header" style="padding-bottom: 25px;">
@@ -297,9 +174,7 @@
                 </div>
                 <div class="modal-body"></div>
             </div>
-
         </div>
-
     </div>
 
     <script type="text/javascript">
@@ -321,14 +196,23 @@
             $('circle').remove();
         }
 
-        function openModal(url) {
-            $.get(url, function(data, status) {
-                $('#chartModal .modal-body').html(data);
+        function openModal(url, asyn) {
+            $('#chartModal').modal('show');
+            $('#chartModal .modal-body').html('<h2 class="text-center"> Carregando gráfico ...</h2>');
+
+            $.ajax({
+                url: url,
+                async: asyn,
+                cache: false,
+                timeout: 1500,
+                success: function(data){
+                    $('#chartModal .modal-body').html(data);
+                }
             });
         }
 
-        $('#chartModal').on('shown.bs.modal', function() {
-            $('#chartModal .chart').highcharts().reflow();
+        $('#chartModal').on('hidden.bs.modal', function (e) {
+            $('.chart .modal-body > div').remove();
         });
 
     </script>

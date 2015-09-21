@@ -2,18 +2,19 @@
      sudo -u postgres pg_dump  meteorologico > /home/aluno/base_10_06.sql
 
  + MODAL RAPIDO
-     * chuva 				- implementar gráfico com a média da temperatura adicionando a 1° maior ocorrência de chuva como icones da pasta icon/ VIDE: http://www.highcharts.com/demo/combo-meteogram#http://www.yr.no/place/United_Kingdom/England/London/forecast_hour_by_hour.xml
-     * sentidovento 		- (não implementado)
+     * chuva 				- ok
+     * sentidovento 		- ok
      * altitude				-
      * temperatura 			- ok
      * umidade				- ok
+     * pressão atmosférica 	- ok
      * velocidade do vento	- (não implementado)
      * rotações por minuto	- (não implementado)
-     * pressão atmosférica 	- ok
 
 + PAGINA DE PERFIL
     * pressão atmosférica	- apenas um gráfico de dias
     * temperatura			- apenas um gráfico de dias
+                            - implementar : http://www.highcharts.com/demo/scatter
     * umidade     			- apenas um gráfico de dias
 
 

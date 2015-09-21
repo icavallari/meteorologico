@@ -1,54 +1,15 @@
 <script type="text/javascript">
-//highcharts
+
 $(function() {
 
     // umidade
     var chart = new Highcharts.Chart(
-            {
-                chart : {
-                    renderTo : 'container-umidade',
-                    type : 'pie',
-                    margin : [ -85, 0, 0, 0 ],
-                    backgroundColor : 'transparent'
-                },
-                title : {
-                    text : false,
-
-                },
-                credits : {
-                    enabled : false
-                },
-                exporting : {
-                    enabled : false
-                },
-                plotOptions : {
-                    pie : {
-                        innerSize : '100%'
-                    }
-                },
-                tooltip : {
-                    formatter : function() {
-                        return false;
-                    }
-                },
-                series : [ {
-                    name : 'Browsers',
-                    data : [ {
-                        name : "Firefox",
-                        y : ${dados.umidade}
-                    }, {
-                        name : "MSIE",
-                        y : 100 - ${dados.umidade},
-                        color : 'transparent'
-                    } ],
-                    size : '80%',
-                    innerSize : '75%',
-                    showInLegend : false,
-                    dataLabels : {
-                        enabled : false
-                    },
-                    borderColor : '#e8e8e8'
-                } ]
+            { chart : { renderTo : 'container-umidade', type : 'pie', margin : [ -85, 0, 0, 0 ], backgroundColor : 'transparent' },
+                title : { text : false, }, credits : { enabled : false }, exporting : { enabled : false },
+                plotOptions : { pie : { innerSize : '100%' } },
+                tooltip : { formatter : function() { return false; } },
+                series : [ { name : 'Browsers', data : [ { name : "Umidade", y : ${dados.umidade} }, { name : "Null", y : 100 - ${dados.umidade}, color : 'transparent' } ],
+                    size : '80%', innerSize : '75%', showInLegend : false, dataLabels : { enabled : false }, borderColor : '#e8e8e8' } ]
             },
 
             function(chart) { // on complete
@@ -67,260 +28,69 @@ $(function() {
 
     // rosa dos ventos
     $('#container-rose').highcharts({
-        data : {
-            table : 'freq',
-            startRow : 1,
-            endRow : 17,
-            endColumn : 7,
-        },
-        credits : {
-            enabled : false
-        },
-        exporting : {
-            enabled : false
-        },
-
-        chart : {
-            polar : true,
-            type : 'column',
-            backgroundColor : 'transparent'
-        },
-
-        title : {
-            text : false,
-        },
-
-        pane : {
-            size : '88%'
-        },
-
-        legend : {
-            enabled : false,
-        },
-
-        xAxis : {
-            tickmarkPlacement : 'on'
-        },
-
-        yAxis : {
-            endOnTick : false,
-            showLastLabel : false,
-            labels : {
-                formatter : function() {
-                    return '';
-                }
-            },
-            reversedStacks : false
-        },
-
-        tooltip : {
-            formatter : function() {
-                return '${dados.sentidoVento}';
-            }
-        },
-
-        plotOptions : {
-            series : {
-                stacking : 'normal',
-                shadow : false,
-                groupPadding : 0,
-                pointPlacement : 'on'
-            }
-        }
-    });
+        chart: { type : 'column', backgroundColor : 'transparent', polar: true },
+        pane : { size : '88%' },
+        title : { text : false, },
+        credits : { enabled : false },
+        exporting : { enabled : false },
+        data : { startRow : 1, endRow : 10, endColumn : 7, },
+        yAxis: { min: 0, endOnTick: false, showLastLabel: false, labels: { enabled :false } },
+        xAxis: { tickmarkPlacement : 'on',
+        categories: [${direcoes}], labels: { formatter: function () { return this.value + ''; } } }, legend : { enabled : false },
+        tooltip : { formatter : function() { return 'Sentido ${dados.sentidoVento}'; } },
+        plotOptions : { series : { stacking : 'normal', shadow : false, groupPadding : 0, pointPlacement : 'on' } },
+        series: [ { data: [${dados.direcaoVento}] } ]
+     });
 
     // velocidade e rotação
     var gaugeOptions = {
 
-        chart : {
-            type : 'solidgauge',
-            width : 235,
-            margin : [ 10, 0, 10, 0 ],
-            backgroundColor : 'transparent'
+        chart : { type : 'solidgauge', width : 235, margin : [ 10, 0, 10, 0 ], backgroundColor : 'transparent' },
+        title : null, credits : { enabled : false }, exporting : { enabled : false },
+        pane : { center : [ '50%', '85%' ], size : '140%', startAngle : -90, endAngle : 90,
+            background : { backgroundColor : (Highcharts.theme && Highcharts.theme.background2) || '#EEE', innerRadius : '60%', outerRadius : '100%', shape : 'arc' }
         },
-
-        title : null,
-        credits : {
-            enabled : false
+        tooltip : { enabled : false },
+        yAxis : { stops : [ [ 0.1, '#55BF3B' ], [ 0.5, '#DDDF0D' ],  [ 0.9, '#DF5353' ]  ],
+            lineWidth : 0, minorTickInterval : null, tickPixelInterval : 400, tickWidth : 0, title : { y : -70 },
+            labels : { y : 16 }
         },
-        exporting : {
-            enabled : false
-        },
-
-        pane : {
-            center : [ '50%', '85%' ],
-            size : '140%',
-            startAngle : -90,
-            endAngle : 90,
-            background : {
-                backgroundColor : (Highcharts.theme && Highcharts.theme.background2)
-                        || '#EEE',
-                innerRadius : '60%',
-                outerRadius : '100%',
-                shape : 'arc'
-            }
-        },
-
-        tooltip : {
-            enabled : false
-        },
-
-        // the value axis
-        yAxis : {
-            stops : [ [ 0.1, '#55BF3B' ], // green
-            [ 0.5, '#DDDF0D' ], // yellow
-            [ 0.9, '#DF5353' ] // red
-            ],
-            lineWidth : 0,
-            minorTickInterval : null,
-            tickPixelInterval : 400,
-            tickWidth : 0,
-            title : {
-                y : -70
-            },
-            labels : {
-                y : 16
-            }
-        },
-
-        plotOptions : {
-            solidgauge : {
-                dataLabels : {
-                    y : 5,
-                    borderWidth : 0,
-                    useHTML : true
-                }
-            }
-        }
+        plotOptions : { solidgauge : { dataLabels : { y : 5, borderWidth : 0, useHTML : true } } }
     };
 
     // The speed gauge
-    $('#container-speed')
-            .highcharts(
-                    Highcharts
-                            .merge(
-                                    gaugeOptions,
-                                    {
-                                        yAxis : {
-                                            min : 0,
-                                            max : 200
-                                        },
-                                        title : {
-                                            text : false
-                                        },
-
-                                        credits : {
-                                            enabled : false
-                                        },
-                                        exporting : {
-                                            enabled : false
-                                        },
-
-                                        series : [ {
-                                            name : 'Velocidade do Vento',
-                                            data : [ ${dados.velocidade} ],
-                                            dataLabels : {
-                                                format : '<div style="text-align:center"><span style="font-size:25px;color:#888'
+    $('#container-speed').highcharts( Highcharts.merge(
+        gaugeOptions, { yAxis : { min : 0, max : 200 }, title : { text : false }, credits : { enabled : false },
+            exporting : { enabled : false }, series : [ { name : 'Velocidade do Vento', data : [ ${dados.velocidade} ],
+                                            dataLabels : { format : '<div style="text-align:center"><span style="font-size:25px;color:#888'
                                                 + '">{y}</span><br/>'
                                                         + '<span style="font-size:12px;color:silver">km/h</span></div>'
-                                            },
-                                            tooltip : {
-                                                valueSuffix : ' km/h'
-                                            }
-                                        } ]
-
-                                    }));
+                                            }, tooltip : { valueSuffix : ' km/h' } } ]  }));
 
     // The RPM gauge
-    $('#container-rpm')
-            .highcharts(
-                    Highcharts
-                            .merge(
-                                    gaugeOptions,
-                                    {
-                                        yAxis : {
-                                            min : 0,
-                                            max : 20
-                                        },
-                                        title : {
-                                            text : false
-                                        },
-                                        credits : {
-                                            enabled : false
-                                        },
-                                        exporting : {
-                                            enabled : false
-                                        },
-
-                                        series : [ {
-                                            name : 'Rotações por Minutor',
-                                            data : [ ${dados.rotacao} ],
-                                            dataLabels : {
-                                                format : '<div style="text-align:center"><span style="font-size:25px;color:#888'
+    $('#container-rpm').highcharts( Highcharts.merge(
+        gaugeOptions, { yAxis : { min : 0, max : 20 }, title : { text : false }, credits : { enabled : false },
+            exporting : { enabled : false }, series : [ { name : 'Rotações por Minutor', data : [ ${dados.rotacao} ],
+                                            dataLabels : { format : '<div style="text-align:center"><span style="font-size:25px;color:#888'
                                                 + '">{y:.1f}</span><br/>'
                                                         + '<span style="font-size:12px;color:silver">* 1000 / min</span></div>'
                                             },
-                                            tooltip : {
-                                                valueSuffix : ' revolutions/min'
-                                            }
-                                        } ]
-
-                                    }));
+                                            tooltip : { valueSuffix : ' revolutions/min' } } ] }));
 
     // uv
     $('#container-uv').highcharts({
 
-        chart : {
-            type : 'gauge',
-            backgroundColor : 'transparent',
-            margin : [ -95, 0, 0, -15 ]
-        },
-
-        credits : {
-            enabled : false
-        },
-        exporting : {
-            enabled : false
-        },
-
-        title : {
-            text : false
-        },
-
-        pane : {
-            startAngle : -90,
-            endAngle : 90,
-            background : null
-        },
-
+        chart : { type : 'gauge', backgroundColor : 'transparent', margin : [ -95, 0, 0, -15 ] },
+        credits : { enabled : false }, exporting : { enabled : false },
+        title : { text : false },
+        pane : { startAngle : -90, endAngle : 90, background : null },
         plotOptions : {
-            gauge : {
-                dataLabels : {
-//                     enabled : false
-                    borderWidth : 0,
-                    useHTML : true
-                },
-                dial : {
-                    baseLength : '63%',
-                    baseWidth : 10,
-                    radius : '95%',
-                    rearLength : '-63%',
-                    topWidth : 1
-                }
+            gauge : { dataLabels : { borderWidth : 0, useHTML : true },
+                dial : { baseLength : '63%', baseWidth : 10, radius : '95%', rearLength : '-63%', topWidth : 1 }
             }
         },
-        tooltip : {
-            enabled : false
-        },
-
-        // the value axis
-        yAxis : {
-            labels : {
-                enabled : true,
-                x : 30,
-                y : -25,
-                format: '{value:0.f}',
-            },
+        tooltip : { enabled : false },
+        yAxis : { labels : { enabled : true, x : 30, y : -25, format: '{value:0.f}', },
             tickPositions : [ 90000, 100000 ],
             minorTickLength : 0,
             min : 0,
@@ -337,7 +107,6 @@ $(function() {
                 thickness : '40%'
             } ]
         },
-
         series : [ {
             name : 'Pressão Atmosférica',
             data : [ ${dados.pressao} ],
@@ -347,14 +116,7 @@ $(function() {
                 format : '<div style="text-align:center"><span style="font-size:25px;color:#888'
                     + '">{y:0.f}</span><br/>'
                     + '<span style="font-size:12px;color:silver">Pa</span>'
-            },
-            tooltip : {
-                pointFormat: "Pressão Atmosférica {point.y:.0f} Pa"
-            }
-        } ]
-
-    });
-
+            }, tooltip : { pointFormat: "Pressão Atmosférica {point.y:.0f} Pa" } }] });
 });
 
 </script>

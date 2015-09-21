@@ -14,7 +14,7 @@ public class Check {
 
         if (o instanceof String) {
             String string = (String) o;
-            if (string != null && !string.trim().isEmpty()) {
+            if (string != null && !string.trim().isEmpty() && !string.equals("null")) {
                 return true;
             }
             return false;

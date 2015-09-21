@@ -1,4 +1,5 @@
-<%@tag description="Main template for pages" pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@tag description="Main template for pages" pageEncoding="UTF-8"
+    trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html >
@@ -7,7 +8,7 @@
 <meta charset="utf-8" />
 <link rel="shortcut icon"
     href="<c:url value='/resources/icon/logo.png' />">
-<title>Sistema Meteorológico IFSP - Campus Salto</title>
+<title>Sistema Meteorológico do IFSP - Campus Salto | SMIF</title>
 <link
     href="<c:url value="/resources/bootstrap-3.1.1-dist/css/bootstrap.min.css"/>"
     rel="stylesheet">
@@ -74,12 +75,17 @@ body {
 }
 </style>
 </head>
-<script type="text/javascript" src="<c:url value="/resources/jquery/jquery-2.1.3.min.js"/> "></script>
+<script type="text/javascript"
+    src="<c:url value="/resources/jquery/jquery-2.1.3.min.js"/> "></script>
 <c:if test="${empty tipo}">
-    <script type="text/javascript" src="<c:url value="/resources/highstock/highstock.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/highcharts/highcharts-more.js"/> "></script>
-    <script type="text/javascript" src="<c:url value="/resources/highcharts/exporting.js"/> "></script>
-    <script type="text/javascript" src="<c:url value="/resources/highcharts/modules/solid-gauge.js"/> "></script>
+    <script type="text/javascript"
+        src="<c:url value="/resources/highstock/highstock.js" />"></script>
+    <script type="text/javascript"
+        src="<c:url value="/resources/highcharts/highcharts-more.js"/> "></script>
+    <script type="text/javascript"
+        src="<c:url value="/resources/highcharts/exporting.js"/> "></script>
+    <script type="text/javascript"
+        src="<c:url value="/resources/highcharts/modules/solid-gauge.js"/> "></script>
 </c:if>
 <body>
 
@@ -138,34 +144,25 @@ body {
         </div>
     </nav>
 
-    <jsp:doBody />
+    <div class="body">
+        <jsp:doBody />
+    </div>
 
     <div class="rodape">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <span class="tit">Gráficos Interativos sobre dados
-                        Climáticos </span>
+                    <span class="tit">Visualizações de dados Climáticos</span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-3 text-center">
-                    <i class="fa fa-pie-chart"></i>
-                </div>
-                <div class="col-md-3 text-center">
-                    <i class="fa fa-bar-chart"></i>
-                </div>
-                <div class="col-md-3 text-center">
-                    <i class="fa fa-area-chart"></i>
-                </div>
-                <div class="col-md-3 text-center">
-                    <i class="fa fa-line-chart"></i>
-                </div>
-            </div>
-            <div class="row">
+            <div class="row" style="margin: 5px 0 10px 0">
                 <div class="col-md-12 text-center">
-                    <span class="subtit">Sistema Meteorológico IFSP - Campus
-                        Salto - 2015</span>
+                    <span class="subtit"> <img
+                        src="<c:url value='/resources/icon/logo.png' />"
+                        style="width: 22px; position: absolute;" /><span
+                        style="margin-left: 21px; color: #67B82D">SMIF</span> - Sistema
+                        Meteorológico do IFSP - Campus Salto - 2015
+                    </span>
                 </div>
             </div>
         </div>

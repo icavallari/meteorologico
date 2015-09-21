@@ -155,7 +155,7 @@ dd {
             <c:forEach var="vento" items="${ventos}" varStatus="it2">
                 $('#container-rosemodal-${it2.index}').highcharts({
                     chart: { type : 'column', backgroundColor : '#F8F8F8', polar: true },
-                    pane : { size : '80%' },
+                    pane : { size : '80%', background : {backgroundColor : 'transparent' }},
                     title : { text : 'Dia ${vento.dataString}', },
                     credits : { enabled : false },
                     exporting : { enabled : false },

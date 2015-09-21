@@ -68,7 +68,7 @@ dd {
                 plotOptions: {
                     spline: {
                         marker: {
-                            radius: 4,
+                            radius: 6,
                             lineColor: '#666666',
                             lineWidth: 1
                         }

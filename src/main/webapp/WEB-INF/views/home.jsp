@@ -117,10 +117,9 @@
                 <div class="text-center">Velocidade do Vento</div>
             </div>
             <div class="col-md-3 for-btn">
-                <!--                 <span class="btn-clicavel" data-toggle="modal" -->
-                <!--                     style="z-index: 99; margin-left: 17px; top: 1px" -->
-                <!--                     data-target="#myModal"><i class="fa fa-hand-o-right"></i> -->
-                <!--                     visualize-me</span> -->
+                <span class="btn-clicavel" data-toggle="modal" onclick="openModal('/modal-rotacao', false)"
+                   style="z-index: 99; margin-left: 17px; top: 1px"><i class="fa fa-hand-o-right"></i>
+                   visualize-me</span>
 
                 <div class="col-md-12 alert alert-if">
                     <div id="container-rpm" style="width: 100%; height: 100%"></div>

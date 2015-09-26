@@ -27,7 +27,7 @@ public class DadosClimaServiceImpl implements DadosClimaService {
         String altitude = query.getSingleValue("select a.valor as altitude from altitude a order by data desc limit 1");
         String chuva = query.getSingleValue("select c.valor as chuva from chuva c order by data desc limit 1");
         String pressao = query.getSingleValue("select p.valor as pressao from pressaoatmosferica p order by data desc limit 1");
-        String rotacao = query.getSingleValue("select r.valor as rotacao from rotacao r order by data desc limit 1");
+        String rotacao = query.getSingleValue("select case when r.valor != 0.00 then round(r.valor / 1000, 1) else round(r.valor, 1) end as rotacao from rotacao r order by data desc limit 1");
         String vento = query.getSingleValue("select s.valor as sentidovento from sentidovento s order by data desc limit 1");
         String temperatura = query.getSingleValue("select t.valor as temperatura from temperatura t order by data desc limit 1");
         String umidade = query.getSingleValue("select u.valor as umidade from umidade u order by data desc limit 1");

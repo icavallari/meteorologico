@@ -1,5 +1,6 @@
 package br.com.tcc.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class VariacaoNumberModel {
@@ -39,6 +40,11 @@ public class VariacaoNumberModel {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    public String getDataString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM - HH");
+        return sdf.format(data) + " hrs";
     }
 
 }

@@ -9,7 +9,7 @@
      * umidade				- ok
      * pressão atmosférica 	- ok
      * velocidade do vento	- (não implementado)
-     * rotações por minuto	- (não implementado)
+     * rotações por minuto	- ok
 
 + PAGINA DE PERFIL
     * pressão atmosférica	- apenas um gráfico de dias
@@ -17,23 +17,13 @@
                             - implementar : http://www.highcharts.com/demo/scatter
     * umidade     			- apenas um gráfico de dias
 
+    * chuva
+        tabela com			-
+                                hora - icone - Previsão "media da temperatura"
+
 
 
 -- Implementar no servidor
-
-        alter table medicao_hora add column sentidovento_qtd int;
-        alter table medicao_hora add column sentidovento_qtdmediana int;
-        alter table medicao_hora add column sentidovento_qtdmoda int;
-        alter table medicao_hora add column chuva_qtd int;
-        alter table medicao_hora add column chuva_qtdmediana int;
-        alter table medicao_hora add column chuva_qtdmoda int;
-        ----
-        alter table medicao_dia add column sentidovento_qtd int;
-        alter table medicao_dia add column sentidovento_qtdmediana int;
-        alter table medicao_dia add column sentidovento_qtdmoda int;
-        alter table medicao_dia add column chuva_qtd int;
-        alter table medicao_dia add column chuva_qtdmediana int;
-        alter table medicao_dia add column chuva_qtdmoda int;
 
      ++ se a soma dos qtds não derem 60 o grafico de pizza deve informar que não houve outras variações
 

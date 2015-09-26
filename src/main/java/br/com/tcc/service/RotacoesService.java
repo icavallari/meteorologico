@@ -38,4 +38,6 @@ public interface RotacoesService {
 
     List<VariacaoNumberModel> getUltimaHora();
 
+    List<VariacaoNumberModel> getUltimasHoras(Integer ultimasHoras);
+
 }

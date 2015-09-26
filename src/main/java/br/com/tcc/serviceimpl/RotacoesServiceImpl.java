@@ -22,7 +22,7 @@ public class RotacoesServiceImpl implements RotacoesService {
     }
 
     @Override
-    public List<VariacaoNumberModel> getUltimaHora(){
+    public List<VariacaoNumberModel> getUltimaHora() {
         String sql = "select round(max(valor),2) as max, round(avg(valor),2) as med, round(min(valor),2) as min, min(data) as data from rotacao "
             + "where data::date = (now())::date and extract('hour' from data) = extract('hour' from now()) group by extract('hour' from data) order by data";
         return query.getListObject(new VariacaoNumberModel(), sql);
@@ -65,6 +65,17 @@ public class RotacoesServiceImpl implements RotacoesService {
         }
 
         return query.getListObject(new VariacaoNumberModel(), sql).get(0);
+    }
+
+    @Override
+    public List<VariacaoNumberModel> getUltimasHoras(Integer ultimasHoras) {
+
+        return query.getListObject(new VariacaoNumberModel(), "select data as data,"
+            + "case when rotacao_maxima != 0.00 then round(rotacao_maxima / 1000, 1) else round(rotacao_maxima, 1) end as max,"
+            + "case when rotacao_media != 0.00 then round(rotacao_media / 1000, 1) else round(rotacao_media, 1) end as med ,"
+            + "case when rotacao_minima != 0.00 then round(rotacao_minima / 1000, 1) else round(rotacao_minima, 1) end as min "
+            + "from medicao_hora order by data offset (select count(*) - " + ultimasHoras + " from medicao_hora) limit " + ultimasHoras);
+
     }
 
 }

@@ -73,7 +73,7 @@ $(function() {
             exporting : { enabled : false }, series : [ { name : 'Rotações por Minutor', data : [ ${dados.rotacao} ],
                                             dataLabels : { format : '<div style="text-align:center"><span style="font-size:25px;color:#888'
                                                 + '">{y:.1f}</span><br/>'
-                                                        + '<span style="font-size:12px;color:silver">* 1000 / min</span></div>'
+                                                        + '<span style="font-size:12px;color:silver">* 1000 r/min</span></div>'
                                             },
                                             tooltip : { valueSuffix : ' revolutions/min' } } ] }));
 

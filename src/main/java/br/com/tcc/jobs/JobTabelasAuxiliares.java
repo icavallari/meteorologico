@@ -34,10 +34,10 @@ import br.com.tcc.util.Check;
  *
  */
 
-//@Configuration
-//@EnableAsync
-//@EnableScheduling
-//@Named
+@Configuration
+@EnableAsync
+@EnableScheduling
+@Named
 public class JobTabelasAuxiliares {
 
     @Inject
@@ -314,8 +314,8 @@ public class JobTabelasAuxiliares {
 
     @Scheduled(cron = "45 00 00 * * *")
     public void deletarDados30Dias() {
-        query.execute("delete from medicao_hora where data::date = (now() - interval '30 day')::date");
-        query.execute("delete from medicao_dia where data::date = (now() - interval '5 year')::date");
+        query.execute("delete from medicao_hora where data::date < (now() - interval '30 day')::date");
+        query.execute("delete from medicao_dia where data::date < (now() - interval '5 year')::date");
 
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tabela auxiliar concluida");
     }

@@ -1,5 +1,5 @@
 /* backup no linux */
-sudo -u postgres pg_dump  meteorologico > /home/aluno/base_10_06.sql
+sudo -u postgres pg_dump  meteorologico > /home/aluno/base_22_09.sql
 
 /* exibe o total de linhas, o custo de cada nó e a largura de cada linha */
 explain select * from altitude;

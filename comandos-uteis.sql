@@ -7,6 +7,9 @@ explain select * from altitude;
 /* exibe em MB o tamanho de uma base de dados */
 SELECT pg_size_pretty(pg_database_size('meteorologico'));
 
+/* gerar valores aleatórios */
+update medicao_hora set velocidade_minima = round((random() * 9 + 1)::numeric, 2), velocidade_media = round((random() * 9 + 10)::numeric, 2), velocidade_maxima = round((random() * 9 + 30)::numeric, 2)
+
 /* executar scripts pelo painel postgres sql shell*/
 psql -U postgres -f location.sql
 

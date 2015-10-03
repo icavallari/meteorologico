@@ -106,10 +106,9 @@
         <!-- fim row -->
         <div class="row">
             <div class="col-md-3 col-sm-3 for-btn">
-                <!--                 <span class="btn-clicavel" data-toggle="modal" -->
-                <!--                     style="z-index: 99; margin-left: 17px; top: 1px" -->
-                <!--                     data-target="#myModal"><i class="fa fa-hand-o-right"></i> -->
-                <!--                     visualize-me</span> -->
+                <span class="btn-clicavel" data-toggle="modal" onclick="openModal('/modal-velocidade', false)"
+                   style="z-index: 99; margin-left: 17px; top: 1px"><i class="fa fa-hand-o-right"></i>
+                   visualize-me</span>
 
                 <div class="col-md-12 alert alert-if">
                     <div id="container-speed" style="width: 100%; height: 100%"></div>
@@ -201,7 +200,7 @@
 
             $.ajax({
                 url: url,
-                async: asyn,
+                async: false,
                 cache: false,
                 timeout: 1500,
                 success: function(data){

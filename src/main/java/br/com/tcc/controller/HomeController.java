@@ -1,7 +1,6 @@
 package br.com.tcc.controller;
 
 import java.text.ParseException;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -13,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.tcc.entidade.DirecoesVento;
 import br.com.tcc.model.DadosClimaModel;
-import br.com.tcc.model.VariacaoNumberModel;
 import br.com.tcc.service.ChuvaService;
 import br.com.tcc.service.DadosClimaService;
 import br.com.tcc.service.PressaoAtmosfericaService;
@@ -21,6 +19,7 @@ import br.com.tcc.service.RotacoesService;
 import br.com.tcc.service.SentidoVentoService;
 import br.com.tcc.service.TemperaturaService;
 import br.com.tcc.service.UmidadeService;
+import br.com.tcc.service.VelocidadeVentoService;
 import br.com.tcc.serviceimpl.Medicoes;
 
 @Controller
@@ -28,28 +27,31 @@ import br.com.tcc.serviceimpl.Medicoes;
 public class HomeController {
 
     @Inject
-    private Medicoes                  refazer;
+    private Medicoes refazer;
 
     @Inject
-    private DadosClimaService         estacaoAntigaService;
+    private DadosClimaService estacaoAntigaService;
 
     @Inject
-    private TemperaturaService        temperaturaService;
+    private TemperaturaService temperaturaService;
 
     @Inject
-    private UmidadeService            umidadeService;
+    private UmidadeService umidadeService;
 
     @Inject
     private PressaoAtmosfericaService pressaoAtmosfericaService;
 
     @Inject
-    private ChuvaService              chuvaService;
+    private ChuvaService chuvaService;
 
     @Inject
-    private SentidoVentoService       sentidoVentoService;
+    private SentidoVentoService sentidoVentoService;
 
     @Inject
-    private RotacoesService           rotacoesService;
+    private RotacoesService rotacoesService;
+
+    @Inject
+    private VelocidadeVentoService velocidadeService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView getNewHome() throws ParseException {
@@ -115,6 +117,12 @@ public class HomeController {
     public ModelAndView getModalRotacao() throws ParseException {
         return new ModelAndView("modal/rotacao")
             .addObject("rotacoes", rotacoesService.getUltimasHoras(30));
+    }
+
+    @RequestMapping(value = "/modal-velocidade", method = RequestMethod.GET)
+    public ModelAndView getModalVelocidade() throws ParseException {
+        return new ModelAndView("modal/velocidade")
+            .addObject("velocidades", velocidadeService.getUltimasHoras(30));
     }
 
     // ----------------------------------------------------------------------------------------

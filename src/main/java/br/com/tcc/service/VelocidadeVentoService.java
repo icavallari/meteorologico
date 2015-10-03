@@ -39,4 +39,6 @@ public interface VelocidadeVentoService {
 
     List<VariacaoNumberModel> getUltimaHora();
 
+    List<VariacaoNumberModel> getUltimasHoras(Integer ultimasHoras);
+
 }

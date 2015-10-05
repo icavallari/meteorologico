@@ -29,3 +29,31 @@
 
      ++ inserir na tabela auxiliar de hora sempre no minuto 59 para ter as ultimas horas no modal
 
+    alter table medicao_hora rename column chuva to chuva_moda3;
+    alter table medicao_hora rename column chuva_mediana to chuva_moda2;
+    alter table medicao_hora rename column chuva_moda to chuva_moda1;
+    alter table medicao_hora rename column chuva_qtd to chuva_qtd_moda3;
+    alter table medicao_hora rename column chuva_qtdmediana to chuva_qtd_moda2;
+    alter table medicao_hora rename column chuva_qtdmoda to chuva_qtd_moda1;
+
+    alter table medicao_hora rename column sentidovento to sentidovento_moda3;
+    alter table medicao_hora rename column sentidovento_mediana to sentidovento_moda2;
+    alter table medicao_hora rename column sentidovento_moda to sentidovento_moda1;
+    alter table medicao_hora rename column sentidovento_qtd to sentidovento_qtd_moda3;
+    alter table medicao_hora rename column sentidovento_qtdmediana to sentidovento_qtd_moda2;
+    alter table medicao_hora rename column sentidovento_qtdmoda to sentidovento_qtd_moda1;
+
+    alter table medicao_dia rename column chuva to chuva_moda3;
+    alter table medicao_dia rename column chuva_mediana to chuva_moda2;
+    alter table medicao_dia rename column chuva_moda to chuva_moda1;
+    alter table medicao_dia rename column chuva_qtd to chuva_qtd_moda3;
+    alter table medicao_dia rename column chuva_qtdmediana to chuva_qtd_moda2;
+    alter table medicao_dia rename column chuva_qtdmoda to chuva_qtd_moda1;
+
+    alter table medicao_dia rename column sentidovento to sentidovento_moda3;
+    alter table medicao_dia rename column sentidovento_mediana to sentidovento_moda2;
+    alter table medicao_dia rename column sentidovento_moda to sentidovento_moda1;
+    alter table medicao_dia rename column sentidovento_qtd to sentidovento_qtd_moda3;
+    alter table medicao_dia rename column sentidovento_qtdmediana to sentidovento_qtd_moda2;
+    alter table medicao_dia rename column sentidovento_qtdmoda to sentidovento_qtd_moda1;
+

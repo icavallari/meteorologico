@@ -35,7 +35,7 @@ public class JobTabelasIndividuais {
     // private static final String URL = "http://localhost/teste/protocolo";
 
     @Inject
-    private DadosClimaService   dadosClimaService;
+    private DadosClimaService dadosClimaService;
 
     /**
      * executa a todo minuto quando segundos for 0

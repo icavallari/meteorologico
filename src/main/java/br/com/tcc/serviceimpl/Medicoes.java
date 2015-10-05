@@ -193,15 +193,15 @@ public class Medicoes {
 
                 String sql = "insert into medicao_hora (estacao_id, data, "
                     // + "altitude_minima, altitude_media, altitude_maxima,"
-                    + "chuva, chuva_mediana, chuva_moda,"
+                    + "chuva_moda3, chuva_moda2, chuva_moda1,"
                     + "pressao_minima, pressao_media, pressao_maxima,"
                     + "rotacao_minima, rotacao_media, rotacao_maxima,"
                     + "velocidade_minima, velocidade_media, velocidade_maxima,"
                     + "temperatura_minima, temperatura_media, temperatura_maxima,"
                     + "umidade_minima, umidade_media, umidade_maxima,"
-                    + "sentidovento, sentidovento_mediana, sentidovento_moda,"
-                    + "sentidovento_qtd, sentidovento_qtdmediana, sentidovento_qtdmoda, "
-                    + "chuva_qtd, chuva_qtdmediana, chuva_qtdmoda) values ("
+                    + "sentidovento_moda3, sentidovento_moda2, sentidovento_moda1,"
+                    + "sentidovento_qtd_moda3, sentidovento_qtd_moda2, sentidovento_qtd_moda1, "
+                    + "chuva_qtd_moda3, chuva_qtd_moda2, chuva_qtd_moda1) values ("
                     + "%d,'%s',"
                     + "'%s','%s','%s',"
                     + "%s,%s,%s,"
@@ -299,15 +299,15 @@ public class Medicoes {
 
                 String sql = "insert into medicao_dia (estacao_id, data, "
                     // + "altitude_minima, altitude_media, altitude_maxima,"
-                    + "chuva, chuva_mediana, chuva_moda,"
+                    + "chuva_moda3, chuva_moda2, chuva_moda1,"
                     + "pressao_minima, pressao_media, pressao_maxima,"
                     + "rotacao_minima, rotacao_media, rotacao_maxima,"
                     + "velocidade_minima, velocidade_media, velocidade_maxima,"
                     + "temperatura_minima, temperatura_media, temperatura_maxima,"
                     + "umidade_minima, umidade_media, umidade_maxima,"
-                    + "sentidovento, sentidovento_mediana, sentidovento_moda,"
-                    + "sentidovento_qtd, sentidovento_qtdmediana, sentidovento_qtdmoda, "
-                    + "chuva_qtd, chuva_qtdmediana, chuva_qtdmoda) values ("
+                    + "sentidovento_moda3, sentidovento_moda2, sentidovento_moda1,"
+                    + "sentidovento_qtd_moda3, sentidovento_qtd_moda2, sentidovento_qtd_moda1, "
+                    + "chuva_qtd_moda3, chuva_qtd_moda2, chuva_qtd_moda1) values ("
                     + "%d,'%s',"
                     + "'%s','%s','%s',"
                     + "%s,%s,%s,"
@@ -341,8 +341,8 @@ public class Medicoes {
     }
 
     public void deletarDados30Dias() {
-        query.execute("delete from medicao_hora where data::date = (now() - interval '30 day')::date");
-        query.execute("delete from medicao_dia where data::date = (now() - interval '5 year')::date");
+        query.execute("delete from medicao_hora where data::date < (now() - interval '30 day')::date");
+        query.execute("delete from medicao_dia where data::date < (now() - interval '5 year')::date");
     }
 
 }

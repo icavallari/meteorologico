@@ -41,7 +41,7 @@ public class ListagemController {
     @RequestMapping(value = "/chuva")
     public ModelAndView getChuvas(HttpServletRequest r) {
         return new ModelAndView("listagem")
-            .addObject("tipo", "Chuvas")
+            .addObject("tipo", "Chuva")
             .addObject("tipoDado", "")
             .addObject("objects",
                 query.getListObject(new Chuva(), "select * from chuva order by data desc limit " + totalItensPagina + ";"));

@@ -247,7 +247,7 @@ public class ChuvaServiceImpl implements ChuvaService {
     public List<ModalChuvaModel> getChuvaTemperaturaUltimasHoras(Integer ultimasHoras) {
 
         return query.getListObject(new ModalChuvaModel(),
-            "select data as data, chuva_moda as chuva, temperatura_media as temperatura "
+            "select data as data, chuva_moda1 as chuva, temperatura_media as temperatura "
                 + "from medicao_hora "
                 + "order by data offset (select count(*) - " + ultimasHoras + " from medicao_hora) limit " + ultimasHoras);
     }

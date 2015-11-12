@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
@@ -142,6 +143,8 @@
                     ><i class="fa fa-hand-o-right"></i>
                     visualize-me</span>
                 <div class="col-md-12 alert alert-if">
+                    <fmt:formatDate pattern="HH" value="${dados.dataCaptura}" var="horaCaptura" />
+                    <!-- ${horaCaptura >= 19 or horaCaptura <= 6 ? '-n' : ''} -->
                     <img id="chuva"
                         src="<c:url value="/resources/icon/${dados.chuva}.png"/> "
                         class="img-responsive" style="margin-top: -35px; opacity: 0.0" />

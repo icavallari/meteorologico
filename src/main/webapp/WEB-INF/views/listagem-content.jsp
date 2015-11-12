@@ -7,8 +7,8 @@
 <c:forEach var="obj" items="${objects}" varStatus="it">
     <tr>
         <td>${obj.valor}${tipoDado}</td>
-        <td><fmt:formatDate type="both" dateStyle="long"
-                timeStyle="medium" value="${obj.data}" /></td>
+        <td><fmt:formatDate type="both" pattern="dd/MM/yyyy - HH:mm:ss"
+                value="${obj.data}" /></td>
     </tr>
 </c:forEach>
 </c:if>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style type="text/css">
@@ -82,6 +83,8 @@ dd {
                     data: [
 
                        <c:forEach var="ch" items="${chuvas}" varStatus="it">
+                           //<fmt:formatDate pattern="HH" value="${ch.data}" var="horaCaptura" />
+                           //${horaCaptura >= 19 or horaCaptura <= 6 ? '-n' : ''}
                            <c:set var="img" value="icon-${ch.chuva}.png" />
 
                           {  y : ${ch.temperatura},

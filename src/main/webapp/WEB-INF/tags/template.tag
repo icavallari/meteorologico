@@ -136,7 +136,7 @@ body {
                 <c:if test="${not empty dados.dataCaptura }">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a>Captado às <fmt:formatDate pattern="HH:mm:ss"
-                                    value="${dados.dataCaptura}" /> hrs
+                                    value="${dados.dataCaptura}" /> h
                         </a></li>
                     </ul>
                 </c:if>

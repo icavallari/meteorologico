@@ -7,4 +7,4 @@ Java Web Maven Project
 * Maven
 * Java JDK 1.7
 * Postgres 9.3 or last version
-
+* Apache Tomcat7 or last version

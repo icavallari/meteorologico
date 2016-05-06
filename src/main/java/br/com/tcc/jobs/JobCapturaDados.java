@@ -39,8 +39,9 @@ public class JobCapturaDados implements ServletContextListener {
      * OBS: ao alterar o valor do delay, também alterar o valor http-refresh nas
      * páginas estacao e listagem
      */
+
+    // DESCOMENTAR PARA AMBIENTE DE PRODUÇÃO COMENTANDO linha 45
     // private static final String URL = "http://172.16.7.162/";
-    // private static final String URL = "http://localhost/teste/protocolo";
     private static final String  URL   = "http://localhost:8080/teste/protocolo";
     private static final Integer DELAY = 60;
 

@@ -17,17 +17,10 @@
                             - implementar : http://www.highcharts.com/demo/scatter
     * umidade     			- apenas um gráfico de dias
 
-    * chuva
-        tabela com			-
-                                hora - icone - Previsão "media da temperatura"
+    * chuva 				- hora - icone - Previsão "media da temperatura"
 
 
-
--- Implementar no servidor
-
-     ++ se a soma dos qtds não derem 60 o grafico de pizza deve informar que não houve outras variações
-
-     ++ inserir na tabela auxiliar de hora sempre no minuto 59 para ter as ultimas horas no modal
+-- Implementar no servidor ("não me recordo se as alterações abaixo já havião sido inplementadas")
 
     alter table medicao_hora rename column chuva to chuva_moda3;
     alter table medicao_hora rename column chuva_mediana to chuva_moda2;

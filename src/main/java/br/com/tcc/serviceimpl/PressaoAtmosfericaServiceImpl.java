@@ -85,7 +85,7 @@ public class PressaoAtmosfericaServiceImpl implements PressaoAtmosfericaService 
         return query.getListObject(new ModalSimplesModel(),
             "select pressao_minima as min, pressao_media as med, pressao_maxima as max, data as data "
                 + "from medicao_hora "
-                + "order by data offset (select count(*) - " + ultimasHoras + " from medicao_hora) limit " + ultimasHoras);
+                + "order by data offset coalesce(0,(select count(*) - " + ultimasHoras + " from medicao_hora)) limit " + ultimasHoras);
 
     }
 

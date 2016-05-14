@@ -74,7 +74,7 @@ public class VelocidadeVentoServiceImpl implements VelocidadeVentoService {
             + "case when velocidade_maxima != 0.00 then round(velocidade_maxima, 1) else round(velocidade_maxima, 1) end as max,"
             + "case when velocidade_media != 0.00 then round(velocidade_media, 1) else round(velocidade_media, 1) end as med ,"
             + "case when velocidade_minima != 0.00 then round(velocidade_minima, 1) else round(velocidade_minima, 1) end as min "
-            + "from medicao_hora order by data offset (select count(*) - " + ultimasHoras + " from medicao_hora) limit " + ultimasHoras);
+            + "from medicao_hora order by data offset coalesce(0,(select count(*) - " + ultimasHoras + " from medicao_hora)) limit " + ultimasHoras);
 
     }
 }

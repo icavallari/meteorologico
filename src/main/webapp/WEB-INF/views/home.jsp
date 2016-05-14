@@ -199,7 +199,7 @@
 
         function openModal(url, asyn) {
             $('#chartModal').modal('show');
-            $('#chartModal .modal-body').html('<h2 class="text-center"> Carregando gráfico ...</h2>');
+            $('#chartModal .modal-body').html('<h2 class="text-center" style="color: #666;"> Carregando gráfico ...</h2>');
 
             $.ajax({
                 url: url,

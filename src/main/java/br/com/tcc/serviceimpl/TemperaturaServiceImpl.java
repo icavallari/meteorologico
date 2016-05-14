@@ -86,7 +86,7 @@ public class TemperaturaServiceImpl implements TemperaturaService {
         return query.getListObject(new ModalSimplesModel(),
             "select temperatura_minima as min, temperatura_media as med,temperatura_maxima as max, data as data "
                 + "from medicao_hora "
-                + "order by data offset (select count(*) - " + ultimasHoras + " from medicao_hora) limit " + ultimasHoras);
+                + "order by data offset coalesce(0,(select count(*) - " + ultimasHoras + " from medicao_hora)) limit " + ultimasHoras);
 
     }
 

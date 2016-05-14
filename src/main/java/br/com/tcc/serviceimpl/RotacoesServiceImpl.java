@@ -74,7 +74,7 @@ public class RotacoesServiceImpl implements RotacoesService {
             + "case when rotacao_maxima != 0.00 then round(rotacao_maxima / 1000, 1) else round(rotacao_maxima, 1) end as max,"
             + "case when rotacao_media != 0.00 then round(rotacao_media / 1000, 1) else round(rotacao_media, 1) end as med ,"
             + "case when rotacao_minima != 0.00 then round(rotacao_minima / 1000, 1) else round(rotacao_minima, 1) end as min "
-            + "from medicao_hora order by data offset (select count(*) - " + ultimasHoras + " from medicao_hora) limit " + ultimasHoras);
+            + "from medicao_hora order by data offset coalesce(0,(select count(*) - " + ultimasHoras + " from medicao_hora)) limit " + ultimasHoras);
 
     }
 

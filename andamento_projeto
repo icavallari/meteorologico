@@ -2,25 +2,20 @@
      sudo -u postgres pg_dump  meteorologico > /home/aluno/base_10_06.sql
 
  + MODAL RAPIDO
-     * chuva 				- ok
-     * sentidovento 		- ok
-     * altitude				-
-     * temperatura 			- ok
-     * umidade				- ok
-     * pressão atmosférica 	- ok
-     * velocidade do vento	- ok
-     * rotações por minuto	- ok
+     * altitude				- não implementado
 
 + PAGINA DE PERFIL
     * pressão atmosférica	- apenas um gráfico de dias
+    
     * temperatura			- apenas um gráfico de dias
                             - implementar : http://www.highcharts.com/demo/scatter
+                            
     * umidade     			- apenas um gráfico de dias
 
     * chuva 				- hora - icone - Previsão "media da temperatura"
 
 
--- Implementar no servidor ("não me recordo se as alterações abaixo já havião sido inplementadas")
+-- Implementar no servidor ("não me recordo se as alterações abaixo já forão inplementadas")
 
     alter table medicao_hora rename column chuva to chuva_moda3;
     alter table medicao_hora rename column chuva_mediana to chuva_moda2;

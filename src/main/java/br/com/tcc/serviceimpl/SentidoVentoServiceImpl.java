@@ -252,7 +252,7 @@ public class SentidoVentoServiceImpl implements SentidoVentoService {
             "select data as data, sentidovento_moda1 as moda, sentidovento_moda2 as mediana, sentidovento_moda3 as media,"
                 + "sentidovento_qtd_moda1 as qtdmoda, sentidovento_qtd_moda2 as qtdmediana, sentidovento_qtd_moda3 as qtd "
                 + "from medicao_hora "
-                + "order by data offset (select count(*) - " + ultimasHoras + " from medicao_hora) limit " + ultimasHoras);
+                + "order by data offset coalesce(0,(select count(*) - " + ultimasHoras + " from medicao_hora)) limit " + ultimasHoras);
 
     }
 

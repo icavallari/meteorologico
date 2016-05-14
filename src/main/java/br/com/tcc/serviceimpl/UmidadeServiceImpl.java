@@ -83,7 +83,7 @@ public class UmidadeServiceImpl implements UmidadeService {
         return query.getListObject(new ModalSimplesModel(),
             "select umidade_minima as min, umidade_media as med, umidade_maxima as max, data as data "
                 + "from medicao_hora "
-                + "order by data offset (select count(*) - " + ultimasHoras + " from medicao_hora) limit " + ultimasHoras);
+                + "order by data offset coalesce(0,(select count(*) - " + ultimasHoras + " from medicao_hora)) limit " + ultimasHoras);
 
     }
 

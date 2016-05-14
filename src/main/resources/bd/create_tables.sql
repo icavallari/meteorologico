@@ -1,4 +1,3 @@
-
 CREATE TABLE IF NOT EXISTS estacao (
     id SMALLINT NOT NULL,
     cidade VARCHAR(100) NOT NULL,
@@ -87,11 +86,6 @@ CREATE TABLE IF NOT EXISTS chuva (
     REFERENCES estacao (id)
 );
 
-CREATE SEQUENCE seq_estacao START 1;
-
-INSERT INTO estacao (id, cidade, data_criacao, localizacao)
-    VALUES (NEXTVAL('seq_estacao'), 'salto', NOW(), 'geolocalizacao');
-
 CREATE TABLE IF NOT EXISTS medicao_hora(
     data TIMESTAMP NOT NULL PRIMARY KEY,
     estacao_id SMALLINT NOT NULL,
@@ -167,14 +161,3 @@ CREATE TABLE IF NOT EXISTS medicao_dia(
     FOREIGN KEY (estacao_id)
     REFERENCES estacao (id)
 );
-
-CREATE INDEX altitude_estacao_id_idx ON altitude (estacao_id);
-CREATE INDEX chuva_estacao_id_idx ON chuva (estacao_id);
-CREATE INDEX rotacao_estacao_id_idx ON rotacao (estacao_id);
-CREATE INDEX pressaoatmosferica_estacao_id_idx ON pressaoatmosferica (estacao_id);
-CREATE INDEX velocidade_estacao_id_idx ON velocidade (estacao_id);
-CREATE INDEX sentidovento_estacao_id_idx ON sentidovento (estacao_id);
-CREATE INDEX umidade_estacao_id_idx ON umidade (estacao_id);
-CREATE INDEX temperatura_estacao_id_idx ON temperatura (estacao_id);
-CREATE INDEX medicao_hora_estacao_id_idx ON medicao_hora (estacao_id);
-CREATE INDEX medicao_dia_estacao_id_idx ON medicao_dia (estacao_id);

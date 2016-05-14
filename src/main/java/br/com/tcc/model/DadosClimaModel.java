@@ -3,6 +3,7 @@ package br.com.tcc.model;
 import java.util.Date;
 
 import br.com.tcc.entidade.DirecoesVento;
+import br.com.tcc.util.Check;
 
 public class DadosClimaModel {
 
@@ -90,6 +91,8 @@ public class DadosClimaModel {
     }
 
     public String getDirecaoVento() {
+        if(!Check.naoNulo(getSentidoVento()))
+            return "";
         return DirecoesVento.valueOf(getSentidoVento().replace("-", "_")).getPosicao();
     }
 

@@ -18,8 +18,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 import br.com.tcc.service.DadosClimaService;
 
 /**
- * classe responsavel por conectar ao host onde as informações são coletadas
- * inserindo cada dado em sua tabela para posterior uso.
+ * classe responsável por conectar ao host onde as informações são coletadas
+ * inserindo cada dado em sua tabela para uso posterior.
  *
  * @author Rodrigo
  *
@@ -32,12 +32,12 @@ import br.com.tcc.service.DadosClimaService;
 public class JobTabelasIndividuais {
 
     // DESCOMENTAR PARA AMBIENTE DE PRODUÇÃO COMENTANDO linha 37
-    //private static final String URL = "http://172.16.7.162/";
+    // private static final String URL = "http://172.16.7.162/";
 
     private static final String URL = "http://localhost/teste/protocolo";
 
     @Inject
-    private DadosClimaService dadosClimaService;
+    private DadosClimaService   dadosClimaService;
 
     /**
      * executa a todo minuto quando segundos for 0
@@ -78,8 +78,7 @@ public class JobTabelasIndividuais {
         BufferedReader reader = null;
         StringBuilder stringBuilder;
 
-        try
-        {
+        try {
             url = new URL(URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
@@ -92,25 +91,19 @@ public class JobTabelasIndividuais {
             stringBuilder = new StringBuilder();
 
             String line = null;
-            while ((line = reader.readLine()) != null)
-            {
+            while ((line = reader.readLine()) != null) {
                 stringBuilder.append(line + "\n");
             }
             return stringBuilder.toString().replaceAll("\\<.*?>", "").trim();
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             throw e;
-        } finally
-        {
-            if (reader != null)
-            {
-                try
-                {
+        } finally {
+            if (reader != null) {
+                try {
                     reader.close();
-                } catch (IOException ioe)
-                {
+                } catch (IOException ioe) {
                     ioe.printStackTrace();
                 }
             }
